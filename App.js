@@ -1,27 +1,35 @@
 import React, { Component } from 'react';
-import { AppRegistry, Image, Text, View } from 'react-native';
+import { AppRegistry, Text, View } from 'react-native';
 
-class Greeting extends Component {
+class Blink extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {isShowingText: true};
+
+    // Toggle the state every second
+    setInterval(() => {
+      this.setState(previousState => {
+        return { isShowingText: !previousState.isShowingText };
+      });
+    }, 1000);
+  }
+
   render() {
+    let display = this.state.isShowingText ? this.props.text : ' ';
     return (
-      <Text>Hello {this.props.name}!</Text>
+      <Text>{display}</Text>
     );
   }
 }
 
-export default class LotsOfGreetings extends Component {
+export default class BlinkApp extends Component {
   render() {
-    let pic = {
-        uri: 'http://lorempixel.com/300/300?1'
-      };
     return (
-      <View style={{alignItems: 'center'}}>
-        <Greeting name='Rexxar' />
-        <Image source={pic} style={{width: 193, height: 110}}/>
-        <Greeting name='Jaina' />
-        <Image source={pic} style={{width: 193, height: 110}}/>
-        <Greeting name='Valeera' />
-        <Image source={pic} style={{width: 193, height: 110}}/>
+      <View>
+        <Blink text='I love to blink' />
+        <Blink text='Yes blinking is so great' />
+        <Blink text='Why did they ever take this out of HTML' />
+        <Blink text='Look at me look at me look at me' />
       </View>
     );
   }
