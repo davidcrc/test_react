@@ -45,12 +45,14 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         flexDirection: 'row',
         shadowColor: 'black',
-        shadowOpacity: .2,
-        shadowOffset: {
-            height: 1,
-            width: -2,
-        },
-        elevation: 2,
+        // shadowOpacity: .2,
+        // shadowOffset: {
+        //     height: 1,
+        //     width: -2,
+        // },
+        elevation: 6,
+        paddingTop: 5,
+        
     },
 
     image: {
