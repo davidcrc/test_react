@@ -1,0 +1,6 @@
+
+npm install react-native-vector-icons --save
+react-native link react-native-vector-icons
+recompilar todo el proyecto, cuando se traen paquetes externos
+
+Sol-error-iconoss: rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json 
