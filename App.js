@@ -1,47 +1,80 @@
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
+
 import React, { Component } from 'react';
-import { ActivityIndicator, ListView, Text, View } from 'react-native';
+import {
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  Alert,
+  FlatList
+} from 'react-native';
 
-export default class Movies extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true
+export default class App extends Component {
+    onPress(){
+        Alert.alert(
+            'Info',
+            ':)',
+            [
+            //   {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
+            //   {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+              {text: 'OK', onPress: () => console.log('OK Pressed')},
+            ],
+            { cancelable: false }
+          )
     }
-  }
-
-  componentDidMount() {
-    return fetch('https://facebook.github.io/react-native/movies.json')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-        this.setState({
-          isLoading: false,
-          dataSource: ds.cloneWithRows(responseJson.movies),
-        }, function() {
-          // do something with new state
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  }
-
-  render() {
-    if (this.state.isLoading) {
-      return (
-        <View style={{flex: 1, paddingTop: 20}}>
-          <ActivityIndicator />
-        </View>
-      );
-    }
-
+    render() {
     return (
-      <View style={{flex: 1, paddingTop: 20}}>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData.title}, {rowData.releaseYear}</Text>}
-        />
-      </View>
+        <View style={styles.container}>
+            <Text style={styles.welcome}>
+                Curso X
+            </Text>
+            <View style={styles.container}>
+            <FlatList
+            data={[
+                {key: 'Devin'},
+                {key: 'Jackson'},
+                {key: 'James'},
+                {key: 'Joel'},
+                {key: 'John'},
+                {key: 'Jillian'},
+                {key: 'Jimmy'},
+                {key: 'Julie'},
+            ]}
+            renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+            />
+            </View>
+            <Button
+                onPress={this.onPress}
+                title="Siguiente"
+                color="#841584"
+                accessibilityLabel="Siguiente Pregunta"
+            />
+        </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
