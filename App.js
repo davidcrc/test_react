@@ -1,80 +1,47 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Alert,
-  FlatList
-} from 'react-native';
+import {  StyleSheet,  Text,  View,  Button,  Alert} from 'react-native';
 
-export default class App extends Component {
-    onPress(){
-        Alert.alert(
-            'Info',
-            ':)',
-            [
-            //   {text: 'Ask me later', onPress: () => console.log('Ask me later pressed')},
-            //   {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-              {text: 'OK', onPress: () => console.log('OK Pressed')},
-            ],
-            { cancelable: false }
-          )
-    }
+export default class AwesomeProject extends Component {
+    
     render() {
     return (
         <View style={styles.container}>
-            <Text style={styles.welcome}>
-                Curso X
-            </Text>
-            <View style={styles.container}>
-            <FlatList
-            data={[
-                {key: 'Devin'},
-                {key: 'Jackson'},
-                {key: 'James'},
-                {key: 'Joel'},
-                {key: 'John'},
-                {key: 'Jillian'},
-                {key: 'Jimmy'},
-                {key: 'Julie'},
-            ]}
-            renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
-            />
-            </View>
-            <Button
-                onPress={this.onPress}
-                title="Siguiente"
-                color="#841584"
-                accessibilityLabel="Siguiente Pregunta"
-            />
+            <View style={[styles.box, styles.red]} />
+            <View style={[styles.box, styles.green]} />
+            <View style={[styles.box, styles.blue]} />
         </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    container: {
+        flex: 1,
+        flexDirection: 'row',
+        // justifyContent: 'center',            // sobre el eje primario , sea row o column 
+        // justifyContent: 'space-around',         // espaciado entre el inicio y los objetos
+        // alignItems: 'center',                   // sobre el eje secundario (contrario del primario)
+        backgroundColor: '#F5FCFF',
+        flexWrap: 'wrap',                           // cae o voltea cuando no entra en toda la pantalla
+    },
+    box: {
+        width: 200,
+        height: 200,
+        backgroundColor: 'black'
+    },
+
+    red: {
+        backgroundColor: 'red',
+        // flex: 2,
+        // alignSelf: 'flex-end'  // alinea abajo o arriba
+    },
+
+    green: {
+        // flex: 1,       
+        backgroundColor: 'green'
+    },
+
+    blue: {
+        backgroundColor: 'blue'
+    },
 });
