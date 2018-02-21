@@ -22,12 +22,12 @@ export default class ArtistBox extends Component {
                 <View style={styles.row} >
                     <View style={styles.iconContainer} >
                     
-                        <Icon name="ios-heart-outline" size={30} color="gray" />
+                        <Icon name="ios-heart-outline" size={30} color="lightgray" />
                         <Text style={styles.count} > {likes} </Text>
                     </View>
                     
                     <View style={styles.iconContainer} >                        
-                        <Icon name="ios-chatboxes-outline" size={30} color="gray" />
+                        <Icon name="ios-chatboxes-outline" size={30} color="lightgray" />
                         <Text style={styles.count}> {comments} </Text>
                     </View>
                     
@@ -83,6 +83,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     count: {
-        color: 'gray',
+        color: 'lightgray',
     }
 });

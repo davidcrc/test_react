@@ -9,3 +9,6 @@ Sol-error-iconoss: rm ./node_modules/react-native/local-cli/core/__fixtures__/fi
 03.Contenedores con Scroll:
     Scrollview: para pocos item
     Listview: para muchos items
+
+05. rutas
+    npm i react-native-router-flux --save

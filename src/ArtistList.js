@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {  StyleSheet, ListView} from 'react-native';
+import {  StyleSheet, ListView, TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import ArtistBox from './ArtistBox'
 
@@ -37,13 +38,27 @@ export default class AwesomeProject extends Component {
         })
     }
 
+    // Maneja al artista clicado, para abrir una vista de detalle
+    handlePress(artist) {
+        // console.warn('artista pe', artist)
+        Actions.artistDetail( {artist})
+    }
+
     render() {
 
         return (
             <ListView
                 enableEmptySections={true}
                 dataSource={this.state.dataSource}
-                renderRow={(artist) => <ArtistBox artist={artist} /> }
+                renderRow={(artist) => { 
+                    return (
+                        // TouchableOpacity , le da la capacidad de volverse opaco al clicar
+                        // onPress , le da un link con la variable del artista clicado -> Con () => mejor para q una funcion lo llame solo al clicar 
+                        <TouchableOpacity onPress={() => this.handlePress(artist) } > 
+                        <ArtistBox artist={artist} /> 
+                        </TouchableOpacity > 
+                    )
+                }}
             />
            
         );
