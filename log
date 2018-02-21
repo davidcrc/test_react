@@ -3,7 +3,8 @@ npm install react-native-vector-icons --save
 react-native link react-native-vector-icons
 recompilar todo el proyecto, cuando se traen paquetes externos
 
-Sol-error-iconoss: rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json 
+Sol-error-iconoss: 
+    rm ./node_modules/react-native/local-cli/core/__fixtures__/files/package.json 
 
 
 03.Contenedores con Scroll:
@@ -12,3 +13,21 @@ Sol-error-iconoss: rm ./node_modules/react-native/local-cli/core/__fixtures__/fi
 
 05. rutas
     npm i react-native-router-flux --save
+    import {  Scene,  Router,  Actions,  Stack, } from 'react-native-router-flux';
+    class App ...{
+          <Router>
+            <Stack key="root">
+                <Scene key="login" component={Login} title="Login"/>
+                <Scene key="register" component={Register} title="Register"/>
+                <Scene key="home" component={Home}/>
+            </Stack>
+        </Router>
+    }
+
+===========================================================
+01. Login con Fcabeook
+    https://developers.facebook.com/quickstarts
+    react-native install react-native-fbsdk
+    react-native link react-native-fbsdk
+    Ver el video para cambiar varios archivos para obtener el sdk de facebook
+    https://github.com/underscopeio/platzi-react-native/pull/9

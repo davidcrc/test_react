@@ -1,4 +1,0 @@
-react-native bundle --platform android --dev false --entry-file index.js --bundle-output andr
-oid/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res
-
-react-native run-android
