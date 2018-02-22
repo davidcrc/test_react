@@ -47,7 +47,7 @@ export default class CommentList extends Component {
                 renderRow={(comment) => { 
                     return (
                        
-                        <Comment text={comment.text} /> 
+                        <Comment text={comment.text} avatar={comment.userPhoto} /> 
                        
                     )
                 }}

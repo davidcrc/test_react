@@ -32,11 +32,19 @@ export default class ArtistDetailView extends Component {
     // se añade a la BD
     handleSend = () => {
         // console.warn('enviar...', this.state.text)
+        const { uid, photoURL } = 'v6r6VePvowYId3Vp7LyDFXTxTys2'
+        // const { uid } = 'v6r6VePvowYId3Vp7LyDFXTxTys2'
 
         const {text} = this.state
         const artistCommentRef = this.getArtistCommentRef()
         var newCommentRef = artistCommentRef.push();
-        newCommentRef.set({ text });
+        newCommentRef.set({ 
+            text,
+            // userPhoto: photoURL,
+            userPhoto: 'http://themes.gohugo.io/theme/hugo-geo/img/profile.png',
+            // uid,
+            uid: 'v6r6VePvowYId3Vp7LyDFXTxTys2' ,
+        });
 
         // vaciar la caja
         this.setState({text: '' })
