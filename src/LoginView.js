@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  StyleSheet,  View, Text, TextInput, Button, Alert } from 'react-native';
+import {  StyleSheet,  View, Text, TextInput, Button, Alert, Image, ImageBackground } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 // import FSDK, { LoginButton,  AccessToken } from 'react-native-fbsdk';
@@ -26,8 +26,10 @@ export default class LoginView extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text> Bienvenidos al Projecto Awesome</Text>
+            <ImageBackground source={require('./imgs/background.jpg') } style={styles.container}>
+
+                <Text style={styles.welcome} > Bienvenidos al Projecto Awesome</Text>
+                <Image source={require('./imgs/logo.png')} style={styles.logo} />
                 
                 <TextInput style={styles.medio}
                     placeholder="nombre"
@@ -38,8 +40,8 @@ export default class LoginView extends Component {
                 <Button
                     onPress={ this.handlePress}
                     title="Login con facebook"
-                    />
-            </View>
+                />
+            </ImageBackground>
             
         );
   }
@@ -56,14 +58,23 @@ const styles = StyleSheet.create({
         // flexWrap: 'wrap',                           // cae o voltea cuando no entra en toda la pantalla
         // paddingTop: 5,
         // margin: 10,
+        width: null,
+        height: null,
     },
     welcome: {
-        fontSize:4 ,
-        fontWeight: 'bold',
+        fontSize: 18 ,
+        fontWeight: '600',
         marginBottom: 20,
+        backgroundColor: 'transparent',
+        color: 'white',
+    },
+    logo: {
+        width: 150,
+        height: 150,
+        marginBottom: 15,
     },
     medio: {
-        flex: 1,
+        flex: 2,
         alignItems: 'stretch'
     }
 });
