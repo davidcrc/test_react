@@ -8,7 +8,7 @@ import LoginView from './LoginView';
 
 export default class AwesomeProject extends Component {
     render() {
-        const isAndroid = Platform.OS === 'android'
+        // const isAndroid = Platform.OS === 'android'
 
         return (
         <Router>
@@ -18,7 +18,7 @@ export default class AwesomeProject extends Component {
                 {/* <Scene key="login" component={Login} title="Login"/> */}
                 {/* <Scene key="register" component={Register} title="Register"/> */}
                 <Scene key="home" component={HomeView} hideNavBar />
-                <Scene key="artistDetail" component={ArtistDetailView} hideNavBar={isAndroid} />
+                <Scene key="artistDetail" component={ArtistDetailView}  title="Comentarios" /*hideNavBar={isAndroid}*/ />
             </Scene>
         </Router>
       );

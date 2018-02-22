@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  StyleSheet,  View, Text } from 'react-native';
+import {  StyleSheet,  View, Text, ActivityIndicator, Platform } from 'react-native';
 
 import ArtistList from './ArtistList'
 import {getArtists } from './api-client'
@@ -7,7 +7,7 @@ import {getArtists } from './api-client'
 export default class HomeView extends Component {
     // se puede iniciaalizar vacio, hasta que lluegue la data de internet
     state = {
-        artists: []        
+        artists: null,     
     }
 
     // Cuando renderizado el componenete va a llamar a la data
@@ -27,14 +27,25 @@ export default class HomeView extends Component {
         const artists = this.state.artists
         // console.warn('artistas ', artists)     
 
+        // if(!artists){
+
+        //     return (
+        //         <View style={styles.container}>
+        //             {/* <Text> DavisofT </Text> */}
+        //             <ActivityIndicator size="large" />
+        //         </View>
+        //     );
+        // }
         return (
             <View style={styles.container}>
-                <Text> DavisofT </Text>
-                <ArtistList artists={artists} />
+                {/* <Text> DavisofT </Text> */}
+                {!artists && <ActivityIndicator size="large" /> }
+                { artists && <ArtistList artists={artists} /> }
+                
             </View>
         );
   }
-}
+} 
 
 const styles = StyleSheet.create({
     container: {
@@ -43,9 +54,12 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',            // sobre el eje primario , sea row o column 
         // justifyContent: 'space-around',         // espaciado entre el inicio y los objetos
         // alignItems: 'center',                   // sobre el eje secundario (contrario del primario)
-        backgroundColor: 'gray',
+        backgroundColor: 'lightgray',
         // flexWrap: 'wrap',                           // cae o voltea cuando no entra en toda la pantalla
-        // paddingTop: 5,
+        paddingTop: Platform.select({
+            ios: 30,
+            android: 10,
+        }) ,
     },
     titulo: {
         flexDirection: 'row',
