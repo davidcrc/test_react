@@ -31,3 +31,13 @@ Sol-error-iconoss:
     react-native link react-native-fbsdk
     Ver el video para cambiar varios archivos para obtener el sdk de facebook
     https://github.com/underscopeio/platzi-react-native/pull/9
+
+04. Instalando firebase
+    npm install firebase --save
+    import * as firebase from "firebase";
+
+    Checar el real time data en firebase, hay problemas por q debe haber un usuario registrado :v
+
+    Registre dos usuario:
+    ygPy9LMNodbvtwlm9PWpkIl6AdF3
+    2eoKFd4KogVt8XdT1IGrpReUmrv1

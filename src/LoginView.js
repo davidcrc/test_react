@@ -4,7 +4,6 @@ import { Actions } from 'react-native-router-flux';
 
 // import FSDK, { LoginButton,  AccessToken } from 'react-native-fbsdk';
 
-
 export default class LoginView extends Component {
     constructor(props) {
 
