@@ -48,3 +48,11 @@ Sol-error-iconoss:
             android/app/src/main/res , reemplazar las q me baje
             ios/AwesomeProject/Image.xcassets, reemplazar las q baje
         recompilar todo
+
+    Firmando el APK: https://facebook.github.io/react-native/docs/signed-apk-android.html
+        keytool -genkey -v -keystore awesomeproject.keystore -alias awesomeproject-release -keyalg RSA -keysize 2048 -validity 10000
+        pss: awesome18
+        luego lo movio a android/app
+
+        cd android && ./gradlew assembleRelease
+            android/app/build/outputs/apk/app-release.apk
