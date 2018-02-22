@@ -13,7 +13,7 @@ export default class ArtistBox extends Component {
     // escucha de la BD , antes q el componenete sea montado
     componentWillMount() {          // value: cuando cambie el valor se cheka su value
 
-        const { uid } = 'ygPy9LMNodbvtwlm9PWpkIl6AdF3'
+        const { uid } = 'v6r6VePvowYId3Vp7LyDFXTxTys2'
         
         this.getArtistRef().on('value', snapshot => {
             const artist = snapshot.val()
@@ -40,7 +40,7 @@ export default class ArtistBox extends Component {
 
     toggleLike = () => {
         // const { uid } = firebaseAuth.currentUser
-        const { uid } = 'ygPy9LMNodbvtwlm9PWpkIl6AdF3'
+        const { uid } = 'v6r6VePvowYId3Vp7LyDFXTxTys2'
 
         this.getArtistRef().transaction(function(artist) {
             if (artist) {

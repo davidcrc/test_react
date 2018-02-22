@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import {  StyleSheet, ListView, TouchableOpacity } from 'react-native';
-import { Actions } from 'react-native-router-flux';
+import {  StyleSheet, ListView } from 'react-native';
 
-import ArtistBox from './ArtistBox'
+import Comment from './Comment'
 
-export default class ArtistList extends Component {
+export default class CommentList extends Component {
 
     // Se construye primero con una lista vacia ...
     constructor(props) {
@@ -18,15 +17,15 @@ export default class ArtistList extends Component {
     
     // Cuando es renderizado todo el componenete va a llamar a la data    
     componentDidMount() {
-        this.updateDataSource(this.props.artists)
+        this.updateDataSource(this.props.comments)
     }
     
     // ... y si cambia debemos setear para mostrar la data que llego (ya q listview muestra por partes)
     componentWillReceiveProps(newProps){
         // chekar cuando la propiedad props cambie 
-        if(newProps.artists != this.props.artists){
+        if(newProps.comments != this.props.comments){
             // console.warn('cambio la lista')
-            this.updateDataSource(newProps.artists)
+            this.updateDataSource(newProps.comments)
             
         }
     }
@@ -38,11 +37,6 @@ export default class ArtistList extends Component {
         })
     }
 
-    // Maneja al artista clicado, para abrir una vista de detalle
-    handlePress(artist) {
-        // console.warn('artista pe', artist)
-        Actions.artistDetail( {artist})
-    }
 
     render() {
 
@@ -50,13 +44,11 @@ export default class ArtistList extends Component {
             <ListView
                 enableEmptySections={true}
                 dataSource={this.state.dataSource}
-                renderRow={(artist) => { 
+                renderRow={(comment) => { 
                     return (
-                        // TouchableOpacity , le da la capacidad de volverse opaco al clicar
-                        // onPress , le da un link con la variable del artista clicado -> Con () => mejor para q una funcion lo llame solo al clicar 
-                        <TouchableOpacity onPress={() => this.handlePress(artist) } > 
-                        <ArtistBox artist={artist} /> 
-                        </TouchableOpacity > 
+                       
+                        <Comment text={comment.text} /> 
+                       
                     )
                 }}
             />
