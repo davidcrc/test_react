@@ -41,3 +41,10 @@ Sol-error-iconoss:
     Registre dos usuario:
     2eoKFd4KogVt8XdT1IGrpReUmrv1
     v6r6VePvowYId3Vp7LyDFXTxTys2
+
+    Generar  iconos para android y ios:
+        https://www.appicon.build/
+        ir a: 
+            android/app/src/main/res , reemplazar las q me baje
+            ios/AwesomeProject/Image.xcassets, reemplazar las q baje
+        recompilar todo
